@@ -1,0 +1,114 @@
+/* Variable */
+:root{
+    --clr-primary-400: hsl(158, 36%, 37%);
+    --clr-primary-500: hsl(158, 36%, 28%);
+    --clr-secondary-200: hsl(32, 37%, 92%);
+
+    --clr-tertiary-900: hsl(212, 21%, 14%);
+    --clr-tertiary-400: hsl(228, 12%, 48%);
+    --clr-tertiary-100: hsl(0, 0%, 100%);
+    
+    
+    --ff-accent: "Fraunces", serif;
+    --ff-base: "Montserrat", sans-serif;
+    
+    --fw-regular: 500;
+    --fw-bold: 700;
+}
+
+/* general styling */
+
+body {
+  font-family: var(--ff-base);
+  font-weight: var(--fw-regular);
+  font-size: 0.875rem;
+  color: var(--clr-tertiary-400);
+  background-color: var(--clr-secondary-200);
+
+  /* for this project only */
+  display: grid;
+  min-height: 100vh;
+  place-content: center;
+  margin: 1rem;
+}
+
+/* utilities */
+
+.flex-group {
+  display: flex;
+  gap: 1rem;
+  flex-wrap: wrap;
+  align-items: center;
+}
+
+/* button */
+.btn {
+  cursor: pointer;
+  text-decoration: none;
+  display: inline-flex;
+  gap: 0.75rem;
+  justify-content: center;
+  align-items: center;
+
+  border: 0;
+  border-radius: 0.5rem;
+  padding: 0.75em 1.5em;
+  background-color: var(--clr-primary-400);
+  color: var(--clr-tertiary-100);
+  font-weight: var(--fw-bold);
+  font-size: 0.925rem;
+}
+
+.btn[data-icon="shopping-cart"]::before {
+  content: "";
+  background-image: url("images/icon-cart.svg");
+  width: 15px;
+  height: 16px;
+}
+
+.btn:is(:hover, :focus) {
+  background-color: var(--clr-primary-500);
+}
+
+/* product styles */
+.item {
+  --content-padding: 1.5rem;
+  --content-spacing: 1rem;
+
+  display: grid;
+  background-color: var(--clr-tertiary-100);
+  border-radius: 0.5rem;
+  overflow: hidden;
+  max-width: 600px;
+}
+
+@media (min-width: 600px) {
+  .item {
+    --content-padding: 2rem;
+    grid-template-columns: 1fr 1fr;
+  }
+}
+
+.item__content {
+  display: grid;
+  gap: var(--content-spacing);
+  padding: var(--content-padding);
+}
+
+.item__cats {
+  font-size: 0.8125rem;
+  letter-spacing: 5px;
+  text-transform: uppercase;
+}
+
+.item__title {
+  font-size: 2rem;
+  font-family: var(--ff-accent);
+  color: var(--clr-tertiary-900);
+}
+
+.item__price {
+  font-size: 2rem;
+  font-family: var(--ff-accent);
+  color: var(--clr-primary-400);
+}
